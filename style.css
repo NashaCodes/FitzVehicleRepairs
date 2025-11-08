@@ -1,0 +1,89 @@
+/* Reset & base */
+:root{
+  --bg:#f4fbf6;
+  --card:#ffffff;
+  --muted:#55706a;
+	--accent:#145c33; /* darker green */
+	--accent-2:#2aa673; /* medium green */
+  --glass: rgba(255,255,255,0.6);
+  --radius:12px;
+  --container:1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+	margin:0;
+	font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background: linear-gradient(180deg,var(--bg), #e9eef9);
+	color:#111827;
+	-webkit-font-smoothing:antialiased;
+}
+.container{max-width:var(--container);margin:0 auto;padding:0 1rem}
+
+/* Header */
+.site-header{backdrop-filter: blur(6px);position:sticky;top:0;z-index:40;background:transparent}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.brand{font-weight:700;color:var(--accent);text-decoration:none;font-size:1.25rem}
+.site-nav{display:flex;gap:1rem}
+.site-nav a{color:var(--muted);text-decoration:none;padding:0.4rem 0.6rem;border-radius:8px;transition:background .15s}
+.site-nav a:hover{background:rgba(20,92,51,0.06);color:var(--accent)}
+.nav-toggle{display:none;background:none;border:0;font-size:1.25rem}
+
+/* Hero */
+.hero{padding:3.5rem 0}
+.hero-inner{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center}
+.hero-copy h1{font-size:2rem;margin:0 0 .75rem}
+.hero-copy p{color:var(--muted);margin:0 0 1.25rem}
+.hero-image{height:260px;border-radius:16px;background:linear-gradient(135deg,var(--accent-2),var(--accent));box-shadow:0 12px 30px rgba(20,92,51,0.14)}
+.hero-cta{display:flex;gap:.75rem}
+.btn{display:inline-block;padding:.65rem 1rem;border-radius:10px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--accent-2),var(--accent));color:#fff}
+.btn.ghost{background:transparent;border-color:rgba(17,24,39,0.06);color:var(--accent)}
+
+/* Services */
+.services{padding:2.5rem 0}
+.section-title{text-align:center;margin:0 0 1rem;font-size:1.25rem}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.card{background:var(--card);padding:1.25rem;border-radius:12px;box-shadow:0 6px 18px rgba(13,24,40,0.06)}
+.card h3{margin:0 0 .5rem}
+.card p{margin:0;color:var(--muted)}
+
+/* About */
+.about{padding:2.5rem 0}
+.about-inner{display:flex;justify-content:space-between;gap:2rem;align-items:center}
+.stats{display:flex;gap:1.5rem}
+.stat strong{display:block;font-size:1.25rem}
+.stat span{color:var(--muted)}
+
+/* Contact */
+.contact{padding:2.5rem 0}
+.contact-inner{display:grid;grid-template-columns:1fr 320px;gap:1.5rem}
+.contact-card{background:linear-gradient(180deg, rgba(255,255,255,0.9), var(--card));padding:1.25rem;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+.contact-card h2{margin-top:0}
+.contact-card form{display:flex;flex-direction:column;gap:.75rem}
+.contact-card input,.contact-card textarea{width:100%;padding:.65rem;border:1px solid #e6e9ef;border-radius:8px}
+.form-actions{display:flex;gap:.5rem;margin-top:.5rem}
+.form-message{color:green;margin-top:.5rem}
+
+.contact-info{padding:1rem 1.25rem}
+
+/* Footer */
+.site-footer{padding:1.25rem 0;color:var(--muted);border-top:1px solid rgba(15,23,42,0.04)}
+
+/* Floating WhatsApp button */
+.whatsapp-fab{position:fixed;right:20px;bottom:20px;background:linear-gradient(180deg,var(--accent-2),var(--accent));color:#fff;padding:12px;border-radius:999px;box-shadow:0 8px 24px rgba(20,92,51,0.22);text-decoration:none;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+.whatsapp-fab:hover{transform:translateY(-3px)}
+
+/* Responsive */
+@media (max-width:900px){
+	.hero-inner{grid-template-columns:1fr;}
+	.contact-inner{grid-template-columns:1fr}
+	.cards{grid-template-columns:1fr}
+	.about-inner{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:700px){
+	.nav-toggle{display:block}
+	.site-nav{display:none;position:absolute;right:1rem;top:64px;background:var(--card);padding:.5rem;border-radius:8px;box-shadow:0 8px 24px rgba(2,6,23,0.08);flex-direction:column}
+	.site-nav a{padding:.6rem .9rem}
+}
+
